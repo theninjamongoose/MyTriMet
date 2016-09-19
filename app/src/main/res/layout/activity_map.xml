@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_map_contents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map_Fragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_map_contents"
+            app:layout_constraintLeft_toLeftOf="@+id/activity_map_contents"
+            app:layout_constraintRight_toRightOf="@+id/activity_map_contents"
+            app:layout_constraintTop_toTopOf="@+id/activity_map_contents"
+            tools:context=".MapsActivity" />
+
+        <LinearLayout
+            android:id="@+id/autocomplete"
+            style="@style/AutoCompleteSearch"
+            app:layout_constraintLeft_toLeftOf="@+id/activity_map_contents"
+            app:layout_constraintRight_toLeftOf="@+id/notification_status_image_btn"></LinearLayout>
+
+        <ImageButton
+            android:id="@+id/notification_status_image_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_Xsmall"
+            android:background="@drawable/ic_directions_black_48dp"
+            android:backgroundTint="@color/darkGreen"
+            app:layout_constraintBottom_toBottomOf="@+id/autocomplete"
+            app:layout_constraintRight_toRightOf="@+id/activity_map_contents"
+            app:layout_constraintTop_toTopOf="@+id/autocomplete" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
+
+</android.support.v4.widget.DrawerLayout>
+
